@@ -7,7 +7,7 @@ namespace KGV_lab_5
     {
         public Matrix position, forward, up, right;
         public double horizontal_fov, vertical_fov, near_plane, far_plane, moving_speed, rotation_speed;
-        public Camera(double x, double y, double z, PictureBox picCanvas)
+        public Camera(double x, double y, double z, double moving_speed, double rotation_speed, PictureBox picCanvas)
         {
             position = new Matrix(x, y, z, 1);
             forward = new Matrix(0, 0, 1, 1);
@@ -17,8 +17,8 @@ namespace KGV_lab_5
             vertical_fov = horizontal_fov * ((double)picCanvas.Height / picCanvas.Width);
             near_plane = 0.1;
             far_plane = 100;
-            moving_speed = 0.02;
-            rotation_speed = 0.0075;
+            this.moving_speed = moving_speed;
+            this.rotation_speed = rotation_speed;
         }
 
         public void camera_yaw(double angle)
