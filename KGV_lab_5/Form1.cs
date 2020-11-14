@@ -188,11 +188,8 @@ namespace KGV_lab_5
 
                 camera.camera_yaw(camera.rotation_speed * delta.X);
                 camera.camera_pitch(camera.rotation_speed * delta.Y);
-
             }
-            //string pos = 
             label1.Text = e.Location.ToString();
-            //label1.Text = .ToString();
         }
 
         private double GetFps()
@@ -203,5 +200,8 @@ namespace KGV_lab_5
             lastCheckTime = DateTime.Now;
             return fps;
         }
+
+
+        //private void 
     }
 }
