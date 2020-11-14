@@ -4,8 +4,11 @@ namespace KGV_lab_5
 {
     class KeyHandler
     {
-        public static bool keyPressed_W = false, keyPressed_S = false, keyPressed_A = false, keyPressed_D = false, 
-            keyPressed_Q = false, keyPressed_E = false, keyPressed_Up = false, keyPressed_Down = false, keyPressed_Left = false, keyPressed_Right = false;
+        public static bool keyPressed_W = false, keyPressed_S = false, keyPressed_A = false, keyPressed_D = false,
+                            keyPressed_Q = false, keyPressed_E = false, keyPressed_Up = false,
+                            keyPressed_Down = false, keyPressed_Left = false, keyPressed_Right = false;
+        public static bool isMouseFocus = false;
+        private static bool keyPressed_F = false;
 
         public enum KeyState
         {
@@ -76,6 +79,29 @@ namespace KGV_lab_5
                         keyPressed_Right = true;
                     else if (keyState == KeyState.Up)
                         keyPressed_Right = false;
+                    break;
+                case Keys.F:
+                    if (keyState == KeyState.Down)
+                    {
+                        if (!keyPressed_F)
+                        {
+                            if (!isMouseFocus)
+                            {
+                                keyPressed_F = true;
+                                isMouseFocus = true;
+                                Cursor.Hide();
+                            }
+                            else if (isMouseFocus)
+                            {
+                                isMouseFocus = false;
+                                Cursor.Show();
+                            }
+                        }
+                    }
+                    else if (keyState == KeyState.Up)
+                    {
+                        keyPressed_F = false;
+                    }
                     break;
             }
         }

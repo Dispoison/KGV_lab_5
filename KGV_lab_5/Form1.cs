@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -16,7 +17,7 @@ namespace KGV_lab_5
         const float ROTATE_SPEED = 0.01F;
         const float TRANSLATE_DISTANCE = 0.1F;
         const float CAMERA_MOVING_SPEED = 0.03F;
-        const float CAMERA_ROTATION_SPEED = 0.008F;
+        const float CAMERA_ROTATION_SPEED = 0.0008F;
         int half_w, half_h;
         Camera camera;
         Projection projection;
@@ -50,8 +51,10 @@ namespace KGV_lab_5
             worldAxes.translate(0.0001, 0.0001, 0.0001);
             arbitraryAxes = new Line(camera, projection, half_w, half_h, Convert.ToDouble(tBox_mX.Text), Convert.ToDouble(tBox_mY.Text), Convert.ToDouble(tBox_mZ.Text), 
                                                                          Convert.ToDouble(tBox_nX.Text), Convert.ToDouble(tBox_nY.Text), Convert.ToDouble(tBox_nZ.Text));
-
+            
         }
+
+
 
         private void picCanvas_Paint(object sender, PaintEventArgs e)
         {
@@ -130,7 +133,10 @@ namespace KGV_lab_5
         }
         private void timer_fpsUpdate_Tick(object sender, EventArgs e)
         {
-            this.Text = ((int)GetFps()).ToString();
+            string fps = ((int)GetFps()).ToString();
+            string mouseFocusMode = KeyHandler.isMouseFocus ? "Press F to disable mouselook" : "Press F to enable mouselook";
+
+            this.Text = $"{fps} - {mouseFocusMode}";
         }
 
         private void btn_scale_Click(object sender, EventArgs e)
@@ -169,6 +175,24 @@ namespace KGV_lab_5
         private void cBox_rotateArbitAxis_CheckedChanged(object sender, EventArgs e)
         {
             picCanvas.Refresh();
+        }
+
+        private void picCanvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (KeyHandler.isMouseFocus)
+            {
+                Point picCanvasCenterPosRelativeScreen = picCanvas.PointToScreen(Point.Empty);
+                Cursor.Position = new Point(picCanvasCenterPosRelativeScreen.X + picCanvas.Width / 2, picCanvasCenterPosRelativeScreen.Y + picCanvas.Height / 2);
+
+                Point delta = new Point(e.Location.X - half_w, e.Location.Y - half_h);
+
+                camera.camera_yaw(camera.rotation_speed * delta.X);
+                camera.camera_pitch(camera.rotation_speed * delta.Y);
+
+            }
+            //string pos = 
+            label1.Text = e.Location.ToString();
+            //label1.Text = .ToString();
         }
 
         private double GetFps()
