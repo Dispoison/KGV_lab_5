@@ -61,8 +61,6 @@
             this.tBox_nY = new System.Windows.Forms.TextBox();
             this.tBox_mZ = new System.Windows.Forms.TextBox();
             this.tBox_nZ = new System.Windows.Forms.TextBox();
-            this.timer_game = new System.Windows.Forms.Timer(this.components);
-            this.timer_fpsUpdate = new System.Windows.Forms.Timer(this.components);
             this.cBox_drawProj = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.cBox_drawProjConnectLines = new System.Windows.Forms.CheckBox();
@@ -73,6 +71,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cBox_drawObjectAxis = new System.Windows.Forms.CheckBox();
             this.cBox_drawWorldAxis = new System.Windows.Forms.CheckBox();
+            this.timer_game = new System.Windows.Forms.Timer(this.components);
+            this.timer_fpsUpdate = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -454,7 +454,6 @@
             this.tBox_mX.TabIndex = 3;
             this.tBox_mX.Text = "0";
             this.tBox_mX.TextChanged += new System.EventHandler(this.tBox_arbitCoord_TextChanged);
-            this.tBox_mX.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_arbitCoord_KeyPress);
             // 
             // tBox_nX
             // 
@@ -466,7 +465,6 @@
             this.tBox_nX.TabIndex = 3;
             this.tBox_nX.Text = "1";
             this.tBox_nX.TextChanged += new System.EventHandler(this.tBox_arbitCoord_TextChanged);
-            this.tBox_nX.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_arbitCoord_KeyPress);
             // 
             // tBox_mY
             // 
@@ -478,7 +476,6 @@
             this.tBox_mY.TabIndex = 3;
             this.tBox_mY.Text = "0";
             this.tBox_mY.TextChanged += new System.EventHandler(this.tBox_arbitCoord_TextChanged);
-            this.tBox_mY.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_arbitCoord_KeyPress);
             // 
             // tBox_nY
             // 
@@ -490,7 +487,6 @@
             this.tBox_nY.TabIndex = 3;
             this.tBox_nY.Text = "1";
             this.tBox_nY.TextChanged += new System.EventHandler(this.tBox_arbitCoord_TextChanged);
-            this.tBox_nY.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_arbitCoord_KeyPress);
             // 
             // tBox_mZ
             // 
@@ -502,7 +498,6 @@
             this.tBox_mZ.TabIndex = 3;
             this.tBox_mZ.Text = "0";
             this.tBox_mZ.TextChanged += new System.EventHandler(this.tBox_arbitCoord_TextChanged);
-            this.tBox_mZ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_arbitCoord_KeyPress);
             // 
             // tBox_nZ
             // 
@@ -514,19 +509,6 @@
             this.tBox_nZ.TabIndex = 3;
             this.tBox_nZ.Text = "1";
             this.tBox_nZ.TextChanged += new System.EventHandler(this.tBox_arbitCoord_TextChanged);
-            this.tBox_nZ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBox_arbitCoord_KeyPress);
-            // 
-            // timer_game
-            // 
-            this.timer_game.Enabled = true;
-            this.timer_game.Interval = 15;
-            this.timer_game.Tick += new System.EventHandler(this.timer_game_Tick);
-            // 
-            // timer_fpsUpdate
-            // 
-            this.timer_fpsUpdate.Enabled = true;
-            this.timer_fpsUpdate.Interval = 50;
-            this.timer_fpsUpdate.Tick += new System.EventHandler(this.timer_fpsUpdate_Tick);
             // 
             // cBox_drawProj
             // 
@@ -669,6 +651,18 @@
             this.cBox_drawWorldAxis.TabIndex = 5;
             this.cBox_drawWorldAxis.Text = "Draw World Axis";
             this.cBox_drawWorldAxis.UseVisualStyleBackColor = true;
+            // 
+            // timer_game
+            // 
+            this.timer_game.Enabled = true;
+            this.timer_game.Interval = 15;
+            this.timer_game.Tick += new System.EventHandler(this.timer_game_Tick);
+            // 
+            // timer_fpsUpdate
+            // 
+            this.timer_fpsUpdate.Enabled = true;
+            this.timer_fpsUpdate.Interval = 50;
+            this.timer_fpsUpdate.Tick += new System.EventHandler(this.timer_fpsUpdate_Tick);
             // 
             // Form1
             // 

@@ -1,25 +1,18 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace KGV_lab_5
 {
     public partial class Form1 : Form
     {
-        const float ROTATE_SPEED = 0.01F;
+        const float ROTATE_SPEED = 0.015F;
         const float TRANSLATE_DISTANCE = 0.1F;
         const float CAMERA_MOVING_SPEED = 0.03F;
         const float CAMERA_ROTATION_SPEED = 0.0008F;
         int half_w, half_h;
+        long frameCount = 0;
         Camera camera;
         Projection projection;
         Object3d object3d;
@@ -28,7 +21,6 @@ namespace KGV_lab_5
         Proj proj;
         Line arbitraryAxes;
         DateTime lastCheckTime = DateTime.Now;
-        long frameCount = 0;
         public Form1()
         {
             InitializeComponent();
@@ -54,10 +46,7 @@ namespace KGV_lab_5
             worldAxes.translate(0.0001, 0.0001, 0.0001);
             arbitraryAxes = new Line(camera, projection, half_w, half_h, Convert.ToDouble(tBox_mX.Text), Convert.ToDouble(tBox_mY.Text), Convert.ToDouble(tBox_mZ.Text), 
                                                                          Convert.ToDouble(tBox_nX.Text), Convert.ToDouble(tBox_nY.Text), Convert.ToDouble(tBox_nZ.Text));
-            
         }
-
-
         private void picCanvas_Paint(object sender, PaintEventArgs e)
         {
             object3d.draw(e.Graphics);
@@ -159,7 +148,6 @@ namespace KGV_lab_5
             int sign = 1;
             if (button.Text.StartsWith("-")) sign = -1;
 
-
             if (button.Text.EndsWith("X"))
                 object3d.translate(x: sign * TRANSLATE_DISTANCE);
             else if (button.Text.EndsWith("Y"))
@@ -171,11 +159,6 @@ namespace KGV_lab_5
         private void tBox_arbitCoord_TextChanged(object sender, EventArgs e)
         {
             cBox_rotateArbitAxis.Checked = false;
-        }
-
-        private void tBox_arbitCoord_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //e.Handled = !char.IsControl(e.KeyChar);
         }
 
         private void cBox_rotateArbitAxis_CheckedChanged(object sender, EventArgs e)

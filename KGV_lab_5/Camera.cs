@@ -27,9 +27,6 @@ namespace KGV_lab_5
             forward.Multiply(rotate.matrix);
             right.Multiply(rotate.matrix);
             up.Multiply(rotate.matrix);
-            /*up.matrix[0, 0] = right.matrix[0, 1] * forward.matrix[0, 2] - forward.matrix[0, 1] * right.matrix[0, 2];
-            up.matrix[0, 1] = right.matrix[0, 0] * forward.matrix[0, 2] - forward.matrix[0, 0] * right.matrix[0, 2];
-            up.matrix[0, 2] = right.matrix[0, 0] * forward.matrix[0, 1] - forward.matrix[0, 0] * right.matrix[0, 1];*/
         }
         public void camera_pitch(double angle)
         {
@@ -37,9 +34,6 @@ namespace KGV_lab_5
             forward.Multiply(rotate.matrix);
             right.Multiply(rotate.matrix);
             up.Multiply(rotate.matrix);
-            /*up.matrix[0, 0] = right.matrix[0, 1] * forward.matrix[0, 2] - forward.matrix[0, 1] * right.matrix[0, 2];
-            up.matrix[0, 1] = right.matrix[0, 0] * forward.matrix[0, 2] - forward.matrix[0, 0] * right.matrix[0, 2];
-            up.matrix[0, 2] = right.matrix[0, 0] * forward.matrix[0, 1] - forward.matrix[0, 0] * right.matrix[0, 1];*/
         }
 
         private Matrix translate_matrix()

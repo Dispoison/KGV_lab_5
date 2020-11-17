@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Axes.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -54,10 +55,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="KeyHandler.cs" />
+    <Compile Include="Line.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="MatrixFunctions.cs" />
     <Compile Include="Object3d.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Proj.cs" />
     <Compile Include="Projection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
