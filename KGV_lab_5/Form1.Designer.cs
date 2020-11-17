@@ -63,11 +63,22 @@
             this.tBox_nZ = new System.Windows.Forms.TextBox();
             this.timer_game = new System.Windows.Forms.Timer(this.components);
             this.timer_fpsUpdate = new System.Windows.Forms.Timer(this.components);
+            this.cBox_drawProj = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.cBox_drawProjConnectLines = new System.Windows.Forms.CheckBox();
+            this.cBox_drawProjX = new System.Windows.Forms.CheckBox();
+            this.cBox_drawProjY = new System.Windows.Forms.CheckBox();
+            this.cBox_drawProjZ = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.cBox_drawObjectAxis = new System.Windows.Forms.CheckBox();
+            this.cBox_drawWorldAxis = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -77,7 +88,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.10577F));
             this.tableLayoutPanel1.Controls.Add(this.picCanvas, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -342,6 +354,7 @@
             this.tableLayoutPanel3.Controls.Add(this.tBox_nY, 1, 4);
             this.tableLayoutPanel3.Controls.Add(this.tBox_mZ, 0, 6);
             this.tableLayoutPanel3.Controls.Add(this.tBox_nZ, 1, 6);
+            this.tableLayoutPanel3.Controls.Add(this.cBox_drawProj, 0, 9);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 363);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -515,14 +528,147 @@
             this.timer_fpsUpdate.Interval = 50;
             this.timer_fpsUpdate.Tick += new System.EventHandler(this.timer_fpsUpdate_Tick);
             // 
+            // cBox_drawProj
+            // 
+            this.cBox_drawProj.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cBox_drawProj.AutoSize = true;
+            this.tableLayoutPanel3.SetColumnSpan(this.cBox_drawProj, 2);
+            this.cBox_drawProj.Location = new System.Drawing.Point(35, 205);
+            this.cBox_drawProj.Name = "cBox_drawProj";
+            this.cBox_drawProj.Size = new System.Drawing.Size(136, 21);
+            this.cBox_drawProj.TabIndex = 4;
+            this.cBox_drawProj.Text = "Draw Projections";
+            this.cBox_drawProj.UseVisualStyleBackColor = true;
+            this.cBox_drawProj.CheckedChanged += new System.EventHandler(this.cBox_drawProj_CheckedChanged);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.cBox_drawProjConnectLines, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.cBox_drawProjX, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.cBox_drawProjY, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.cBox_drawProjZ, 0, 3);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(803, 603);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 4;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.76923F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.23077F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(200, 115);
+            this.tableLayoutPanel4.TabIndex = 3;
+            // 
+            // cBox_drawProjConnectLines
+            // 
+            this.cBox_drawProjConnectLines.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cBox_drawProjConnectLines.AutoSize = true;
+            this.cBox_drawProjConnectLines.Checked = true;
+            this.cBox_drawProjConnectLines.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tableLayoutPanel4.SetColumnSpan(this.cBox_drawProjConnectLines, 2);
+            this.cBox_drawProjConnectLines.Location = new System.Drawing.Point(28, 6);
+            this.cBox_drawProjConnectLines.Name = "cBox_drawProjConnectLines";
+            this.cBox_drawProjConnectLines.Size = new System.Drawing.Size(144, 21);
+            this.cBox_drawProjConnectLines.TabIndex = 0;
+            this.cBox_drawProjConnectLines.Text = "Draw Connections";
+            this.cBox_drawProjConnectLines.UseVisualStyleBackColor = true;
+            this.cBox_drawProjConnectLines.Visible = false;
+            // 
+            // cBox_drawProjX
+            // 
+            this.cBox_drawProjX.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cBox_drawProjX.AutoSize = true;
+            this.cBox_drawProjX.Checked = true;
+            this.cBox_drawProjX.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tableLayoutPanel4.SetColumnSpan(this.cBox_drawProjX, 2);
+            this.cBox_drawProjX.Location = new System.Drawing.Point(29, 37);
+            this.cBox_drawProjX.Name = "cBox_drawProjX";
+            this.cBox_drawProjX.Size = new System.Drawing.Size(142, 20);
+            this.cBox_drawProjX.TabIndex = 1;
+            this.cBox_drawProjX.Text = "Draw Projection X";
+            this.cBox_drawProjX.UseVisualStyleBackColor = true;
+            this.cBox_drawProjX.Visible = false;
+            // 
+            // cBox_drawProjY
+            // 
+            this.cBox_drawProjY.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cBox_drawProjY.AutoSize = true;
+            this.cBox_drawProjY.Checked = true;
+            this.cBox_drawProjY.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tableLayoutPanel4.SetColumnSpan(this.cBox_drawProjY, 2);
+            this.cBox_drawProjY.Location = new System.Drawing.Point(29, 63);
+            this.cBox_drawProjY.Name = "cBox_drawProjY";
+            this.cBox_drawProjY.Size = new System.Drawing.Size(142, 21);
+            this.cBox_drawProjY.TabIndex = 2;
+            this.cBox_drawProjY.Text = "Draw Projection Y";
+            this.cBox_drawProjY.UseVisualStyleBackColor = true;
+            this.cBox_drawProjY.Visible = false;
+            // 
+            // cBox_drawProjZ
+            // 
+            this.cBox_drawProjZ.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cBox_drawProjZ.AutoSize = true;
+            this.cBox_drawProjZ.Checked = true;
+            this.cBox_drawProjZ.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tableLayoutPanel4.SetColumnSpan(this.cBox_drawProjZ, 2);
+            this.cBox_drawProjZ.Location = new System.Drawing.Point(29, 90);
+            this.cBox_drawProjZ.Name = "cBox_drawProjZ";
+            this.cBox_drawProjZ.Size = new System.Drawing.Size(142, 21);
+            this.cBox_drawProjZ.TabIndex = 3;
+            this.cBox_drawProjZ.Text = "Draw Projection Z";
+            this.cBox_drawProjZ.UseVisualStyleBackColor = true;
+            this.cBox_drawProjZ.Visible = false;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.71536F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.28464F));
+            this.tableLayoutPanel5.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.cBox_drawObjectAxis, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.cBox_drawWorldAxis, 1, 1);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 603);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(794, 115);
+            this.tableLayoutPanel5.TabIndex = 4;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 600);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 3;
             this.label1.Text = "label1";
+            // 
+            // cBox_drawObjectAxis
+            // 
+            this.cBox_drawObjectAxis.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cBox_drawObjectAxis.AutoSize = true;
+            this.cBox_drawObjectAxis.Location = new System.Drawing.Point(641, 18);
+            this.cBox_drawObjectAxis.Name = "cBox_drawObjectAxis";
+            this.cBox_drawObjectAxis.Size = new System.Drawing.Size(136, 21);
+            this.cBox_drawObjectAxis.TabIndex = 4;
+            this.cBox_drawObjectAxis.Text = "Draw Object Axis";
+            this.cBox_drawObjectAxis.UseVisualStyleBackColor = true;
+            // 
+            // cBox_drawWorldAxis
+            // 
+            this.cBox_drawWorldAxis.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cBox_drawWorldAxis.AutoSize = true;
+            this.cBox_drawWorldAxis.Location = new System.Drawing.Point(643, 75);
+            this.cBox_drawWorldAxis.Name = "cBox_drawWorldAxis";
+            this.cBox_drawWorldAxis.Size = new System.Drawing.Size(132, 21);
+            this.cBox_drawWorldAxis.TabIndex = 5;
+            this.cBox_drawWorldAxis.Text = "Draw World Axis";
+            this.cBox_drawWorldAxis.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -535,12 +681,15 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -581,7 +730,16 @@
         private System.Windows.Forms.TextBox tBox_nY;
         private System.Windows.Forms.TextBox tBox_mZ;
         private System.Windows.Forms.TextBox tBox_nZ;
+        private System.Windows.Forms.CheckBox cBox_drawProj;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        public System.Windows.Forms.CheckBox cBox_drawProjConnectLines;
+        public System.Windows.Forms.CheckBox cBox_drawProjX;
+        public System.Windows.Forms.CheckBox cBox_drawProjY;
+        public System.Windows.Forms.CheckBox cBox_drawProjZ;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox cBox_drawObjectAxis;
+        private System.Windows.Forms.CheckBox cBox_drawWorldAxis;
     }
 }
 

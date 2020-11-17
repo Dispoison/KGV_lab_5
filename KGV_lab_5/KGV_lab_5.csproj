@@ -81,7 +81,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="t_34_obj.obj" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

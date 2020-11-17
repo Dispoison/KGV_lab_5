@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,7 @@ namespace KGV_lab_5
         Object3d object3d;
         Axes axes;
         Axes worldAxes;
+        Proj proj;
         Line arbitraryAxes;
         DateTime lastCheckTime = DateTime.Now;
         long frameCount = 0;
@@ -45,6 +47,7 @@ namespace KGV_lab_5
             axes = new Axes(camera, projection, half_w, half_h);
             object3d = new Object3d(camera, projection, half_w, half_h, axes);
             object3d.translate(0.2, 0.4, 0.2);
+            proj = new Proj(camera, projection, half_w, half_h, object3d);
             worldAxes = new Axes(camera, projection, half_w, half_h);
             worldAxes.movement_flag = false;
             worldAxes.scale(2.5);
@@ -55,12 +58,15 @@ namespace KGV_lab_5
         }
 
 
-
         private void picCanvas_Paint(object sender, PaintEventArgs e)
         {
             object3d.draw(e.Graphics);
-            worldAxes.draw(e.Graphics);
-            axes.draw(e.Graphics);
+            if (cBox_drawProj.Checked)
+                proj.draw(e.Graphics);
+            if (cBox_drawWorldAxis.Checked)
+                worldAxes.draw(e.Graphics);
+            if (cBox_drawObjectAxis.Checked)
+                axes.draw(e.Graphics);
             if (cBox_rotateArbitAxis.Checked)
                 arbitraryAxes.draw(e.Graphics);
         }
@@ -187,9 +193,19 @@ namespace KGV_lab_5
                 Point delta = new Point(e.Location.X - half_w, e.Location.Y - half_h);
 
                 camera.camera_yaw(camera.rotation_speed * delta.X);
-                camera.camera_pitch(camera.rotation_speed * delta.Y);
+                //camera.camera_pitch(camera.rotation_speed * delta.Y);
             }
             label1.Text = e.Location.ToString();
+        }
+
+        private void cBox_drawProj_CheckedChanged(object sender, EventArgs e)
+        {
+            bool isVisible = cBox_drawProj.Checked;
+
+            cBox_drawProjConnectLines.Visible = isVisible;
+            cBox_drawProjX.Visible = isVisible;
+            cBox_drawProjY.Visible = isVisible;
+            cBox_drawProjZ.Visible = isVisible;
         }
 
         private double GetFps()
@@ -200,8 +216,5 @@ namespace KGV_lab_5
             lastCheckTime = DateTime.Now;
             return fps;
         }
-
-
-        //private void 
     }
 }
