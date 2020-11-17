@@ -13,7 +13,7 @@ namespace KGV_lab_5
             Up
         }
 
-        private static Dictionary<KeyState, bool> dictKeyState = new Dictionary<KeyState, bool>() { { KeyState.Down, true }, { KeyState.Up, false } };
+        private readonly static Dictionary<KeyState, bool> dictKeyState = new Dictionary<KeyState, bool>() { { KeyState.Down, true }, { KeyState.Up, false } };
         public static Dictionary<Keys, bool> KeysPressed = new Dictionary<Keys, bool>() 
         { 
             { Keys.W, false },
