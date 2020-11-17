@@ -114,17 +114,17 @@ namespace KGV_lab_5
 
         private void DoCameraMovement()
         {
-            if (KeyHandler.keyPressed_W) camera.position = Matrix.Add(camera.position.matrix, Matrix.MultSingle(camera.forward.matrix, camera.moving_speed).matrix);
-            if (KeyHandler.keyPressed_S) camera.position = Matrix.Sub(camera.position.matrix, Matrix.MultSingle(camera.forward.matrix, camera.moving_speed).matrix);
-            if (KeyHandler.keyPressed_A) camera.position = Matrix.Sub(camera.position.matrix, Matrix.MultSingle(camera.right.matrix, camera.moving_speed).matrix);
-            if (KeyHandler.keyPressed_D) camera.position = Matrix.Add(camera.position.matrix, Matrix.MultSingle(camera.right.matrix, camera.moving_speed).matrix);
-            if (KeyHandler.keyPressed_Q) camera.position = Matrix.Sub(camera.position.matrix, Matrix.MultSingle(camera.up.matrix, camera.moving_speed).matrix);
-            if (KeyHandler.keyPressed_E) camera.position = Matrix.Add(camera.position.matrix, Matrix.MultSingle(camera.up.matrix, camera.moving_speed).matrix); 
+            if (KeyHandler.KeysPressed[Keys.W]) camera.position = Matrix.Add(camera.position.matrix, Matrix.MultSingle(camera.forward.matrix, camera.moving_speed).matrix);
+            if (KeyHandler.KeysPressed[Keys.S]) camera.position = Matrix.Sub(camera.position.matrix, Matrix.MultSingle(camera.forward.matrix, camera.moving_speed).matrix);
+            if (KeyHandler.KeysPressed[Keys.A]) camera.position = Matrix.Sub(camera.position.matrix, Matrix.MultSingle(camera.right.matrix, camera.moving_speed).matrix);
+            if (KeyHandler.KeysPressed[Keys.D]) camera.position = Matrix.Add(camera.position.matrix, Matrix.MultSingle(camera.right.matrix, camera.moving_speed).matrix);
+            if (KeyHandler.KeysPressed[Keys.Q]) camera.position = Matrix.Sub(camera.position.matrix, Matrix.MultSingle(camera.up.matrix, camera.moving_speed).matrix);
+            if (KeyHandler.KeysPressed[Keys.E]) camera.position = Matrix.Add(camera.position.matrix, Matrix.MultSingle(camera.up.matrix, camera.moving_speed).matrix); 
 
-            if (KeyHandler.keyPressed_Up) camera.camera_pitch(-camera.rotation_speed);
-            if (KeyHandler.keyPressed_Down) camera.camera_pitch(camera.rotation_speed);
-            if (KeyHandler.keyPressed_Left) camera.camera_yaw(-camera.rotation_speed);
-            if (KeyHandler.keyPressed_Right) camera.camera_yaw(camera.rotation_speed);
+            if (KeyHandler.KeysPressed[Keys.Up]) camera.camera_pitch(-camera.rotation_speed);
+            if (KeyHandler.KeysPressed[Keys.Down]) camera.camera_pitch(camera.rotation_speed);
+            if (KeyHandler.KeysPressed[Keys.Left]) camera.camera_yaw(-camera.rotation_speed);
+            if (KeyHandler.KeysPressed[Keys.Right]) camera.camera_yaw(camera.rotation_speed);
         }
         private void timer_fpsUpdate_Tick(object sender, EventArgs e)
         {

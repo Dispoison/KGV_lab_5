@@ -1,14 +1,11 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace KGV_lab_5
 {
     class KeyHandler
     {
-        public static bool keyPressed_W = false, keyPressed_S = false, keyPressed_A = false, keyPressed_D = false,
-                            keyPressed_Q = false, keyPressed_E = false, keyPressed_Up = false,
-                            keyPressed_Down = false, keyPressed_Left = false, keyPressed_Right = false;
         public static bool isMouseFocus = false;
-        private static bool keyPressed_F = false;
 
         public enum KeyState
         {
@@ -16,93 +13,56 @@ namespace KGV_lab_5
             Up
         }
 
+        private static Dictionary<KeyState, bool> dictKeyState = new Dictionary<KeyState, bool>() { { KeyState.Down, true }, { KeyState.Up, false } };
+        public static Dictionary<Keys, bool> KeysPressed = new Dictionary<Keys, bool>() 
+        { 
+            { Keys.W, false },
+            { Keys.S, false },
+            { Keys.A, false },
+            { Keys.D, false },
+            { Keys.Q, false },
+            { Keys.E, false },
+            { Keys.Up, false },
+            { Keys.Down, false },
+            { Keys.Left, false },
+            { Keys.Right, false },
+            { Keys.F, false },
+        };
+
         public static void KeyEvent(Keys key, KeyState keyState)
         {
-            switch(key)
+            if (!KeysPressed.ContainsKey(key))
+                return;
+
+            if (key == Keys.F)
+                MouseLook(keyState);
+            else
+                KeysPressed[key] = dictKeyState[keyState];
+
+        }
+
+        private static void MouseLook(KeyState keyState)
+        {
+            if (keyState == KeyState.Down)
             {
-                case Keys.W:
-                    if (keyState == KeyState.Down)
-                        keyPressed_W = true;
-                    else if (keyState == KeyState.Up)
-                        keyPressed_W = false;
-                    break;
-                case Keys.S:
-                    if (keyState == KeyState.Down)
-                        keyPressed_S = true;
-                    else if (keyState == KeyState.Up)
-                        keyPressed_S = false;
-                    break;
-                case Keys.A:
-                    if (keyState == KeyState.Down)
-                        keyPressed_A = true;
-                    else if (keyState == KeyState.Up)
-                        keyPressed_A = false;
-                    break;
-                case Keys.D:
-                    if (keyState == KeyState.Down)
-                        keyPressed_D = true;
-                    else if (keyState == KeyState.Up)
-                        keyPressed_D = false;
-                    break;
-                case Keys.Q:
-                    if (keyState == KeyState.Down)
-                        keyPressed_Q = true;
-                    else if (keyState == KeyState.Up)
-                        keyPressed_Q = false;
-                    break;
-                case Keys.E:
-                    if (keyState == KeyState.Down)
-                        keyPressed_E = true;
-                    else if (keyState == KeyState.Up)
-                        keyPressed_E = false;
-                    break;
-                case Keys.Up:
-                    if (keyState == KeyState.Down)
-                        keyPressed_Up = true;
-                    else if (keyState == KeyState.Up)
-                        keyPressed_Up = false;
-                    break;
-                case Keys.Down:
-                    if (keyState == KeyState.Down)
-                        keyPressed_Down = true;
-                    else if (keyState == KeyState.Up)
-                        keyPressed_Down = false;
-                    break;
-                case Keys.Left:
-                    if (keyState == KeyState.Down)
-                        keyPressed_Left = true;
-                    else if (keyState == KeyState.Up)
-                        keyPressed_Left = false;
-                    break;
-                case Keys.Right:
-                    if (keyState == KeyState.Down)
-                        keyPressed_Right = true;
-                    else if (keyState == KeyState.Up)
-                        keyPressed_Right = false;
-                    break;
-                case Keys.F:
-                    if (keyState == KeyState.Down)
+                if (!KeysPressed[Keys.F])
+                {
+                    if (!isMouseFocus)
                     {
-                        if (!keyPressed_F)
-                        {
-                            if (!isMouseFocus)
-                            {
-                                keyPressed_F = true;
-                                isMouseFocus = true;
-                                Cursor.Hide();
-                            }
-                            else if (isMouseFocus)
-                            {
-                                isMouseFocus = false;
-                                Cursor.Show();
-                            }
-                        }
+                        KeysPressed[Keys.F] = true;
+                        isMouseFocus = true;
+                        Cursor.Hide();
                     }
-                    else if (keyState == KeyState.Up)
+                    else if (isMouseFocus)
                     {
-                        keyPressed_F = false;
+                        isMouseFocus = false;
+                        Cursor.Show();
                     }
-                    break;
+                }
+            }
+            else if (keyState == KeyState.Up)
+            {
+                KeysPressed[Keys.F] = false;
             }
         }
 
